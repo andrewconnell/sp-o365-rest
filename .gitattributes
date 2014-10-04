@@ -1,0 +1,36 @@
+# Set the default behavior
+* text=auto
+
+*.md      eol=crlf
+
+# Visual Studio files
+*.sln     eol=crlf
+*.csproj  eol=crlf
+*.ccproj  eol=crlf
+*.config  eol=crlf
+*.pubxml  eol=crlf
+*.cscfg   eol=crlf
+*.csdef   eol=crlf
+*.wadcgf  eol=crlf
+
+# source files
+*.js      eol=crlf
+*.ts      eol=crlf
+*.map     eol=crlf
+*.json    eol=crlf
+*.html    eol=crlf
+*.cshtml  eol=crlf
+*.cs      eol=crlf  diff=csharp
+*.css     eol=crlf
+*.bat     eol=crlf
+
+# images
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+
+# OpenXML file formats
+*.pptx binary
+*.docx binary
+*.xlsx binary
