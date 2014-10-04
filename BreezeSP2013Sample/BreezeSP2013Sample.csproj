@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07426DB5-A86F-4F7C-A763-517A8D91B405}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BreezeSP2013Sample</RootNamespace>
+    <AssemblyName>BreezeSP2013Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{342f20c5-2052-4a0e-80f5-0d9493945f81}</AppFeaturePartId>
+    <WspPartId>{de525e08-1d26-456e-8923-32bfcba1d761}</WspPartId>
+    <WorkflowPartId>{6ad3d379-6dee-4323-a820-90ba3329bfdd}</WorkflowPartId>
+    <CspkgPartId>{9d441aa8-9020-4edc-87d9-02352903921e}</CspkgPartId>
+    <SqlPackagePartId>{0a367f9a-235c-4d0e-aef3-aa3f664eef31}</SqlPackagePartId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Contacts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{01f24112-1f83-4d61-b472-a9c6a63b87ff}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8553e16f-1395-4288-b246-c65cd1f46c99}</SharePointProjectItemId>
+    </None>
+    <Content Include="Contacts\Elements.xml" />
+    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\jquery-1.9.1.min.map">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </None>
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0a367f9a-235c-4d0e-aef3-aa3f664eef31}</SharePointProjectItemId>
+    </None>
+    <Content Include="Scripts\breeze.debug.js">
+      <DependentUpon>breeze.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\breeze.intellisense.js">
+      <DependentUpon>breeze.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\breeze.labs.dataservice.abstractrest.js" />
+    <Content Include="Scripts\breeze.labs.dataservice.sharepoint.js" />
+    <Content Include="Scripts\breeze.metadata-helper.js" />
+    <Content Include="Scripts\breeze.min.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\q.js" />
+    <Content Include="Scripts\q.min.js">
+      <DependentUpon>q.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0502a31a-2114-4b4f-bcd7-17bf5f071f04}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{614d017c-fdc7-40de-be01-e68d3ddad5a5}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{dbb9a9fb-50aa-48b2-9279-02debd2bd468}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{1cdb43a2-6452-4f07-baa8-315e67f80900}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

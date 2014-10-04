@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="dbb9a9fb-50aa-48b2-9279-02debd2bd468" 
+        solutionId="dbb9a9fb-50aa-48b2-9279-02debd2bd468" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="BreezeSP2013Sample"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="1cdb43a2-6452-4f07-baa8-315e67f80900" />
+  </features>
+</package>
