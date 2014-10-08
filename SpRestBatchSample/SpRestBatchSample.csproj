@@ -10,7 +10,7 @@
     <RootNamespace>SpRestBatchSampel</RootNamespace>
     <AssemblyName>SpRestBatchSampel</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetOfficeVersion>16.0</TargetOfficeVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
@@ -60,19 +60,29 @@
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\jquery-1.9.1.min.map">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </None>
     <None Include="Scripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2c0f5eca-5dd8-444d-85fe-3b8b4fe1bf40}</SharePointProjectItemId>
     </None>
     <Content Include="Scripts\Elements.xml" />
     <Content Include="Scripts\App.js" />
-    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\knockout-3.2.0.debug.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js">
+      <DependentUpon>jquery-1.9.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\knockout-3.2.0.debug.js">
+      <DependentUpon>knockout-3.2.0.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\q.js" />
-    <Content Include="Scripts\q.min.js" />
+    <Content Include="Scripts\q.min.js">
+      <DependentUpon>q.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>

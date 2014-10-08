@@ -4,7 +4,7 @@
      Name="SpRestBatchSample"
      ProductID="{d49b8eec-cf95-4a30-b855-c9d015eb2613}"
      Version="1.0.0.0"
-     SharePointMinVersion="16.0.0.0"
+     SharePointMinVersion="15.0.0.0"
 >
   <Properties>
     <Title>SpRestBatchSample</Title>

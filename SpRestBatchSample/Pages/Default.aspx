@@ -42,23 +42,26 @@
     <p></p>
 
     <input type="button" disabled="disabled"
-      value="Get All Drivers"
-      data-bind="click: getAllDrivers" />&nbsp;
+            value="Get All Teams"
+            data-bind="click: getAllDrivers" />&nbsp;
     <input type="button" disabled="disabled"
-      value="Delete All Drivers"
-      data-bind="click: deleteAllDrivers" /><br />
+            value="Delete All Teams"
+            data-bind="click: deleteAllDrivers" /><br />
     <input type="button" disabled="disabled"
-      value="Add Mercedes Drivers"
-      data-bind="click: function (data, event) { addDrivers('mercedes') }" />&nbsp;
+            value="Add Ferrari 2013 Team"
+            data-bind="click: function (data, event) { addDrivers('ferrari') }" />&nbsp;
     <input type="button" disabled="disabled"
-      value="Add Ferrari Drivers"
-      data-bind="click: function (data, event) { addDrivers('ferrari') }" />&nbsp;
+            value="Add Mercedes 2013 Team"
+            data-bind="click: function (data, event) { addDrivers('mercedes') }" />&nbsp;
     <input type="button" disabled="disabled"
-      value="Add Red Bull Drivers"
-      data-bind="click: function (data, event) { addDrivers('redbull') }" />
+            value="Add Red Bull 2013 Team"
+            data-bind="click: function (data, event) { addDrivers('redbull') }" /><br />
+    <input type="button" disabled="disabled"
+            value="Update Teams to 2014"
+            data-bind="click: updateDrivers" />
   </div>
   <div>
-    <table>
+    <table cellpadding="2" cellspacing="2">
       <thead>
         <tr>
           <th>ID</th>
