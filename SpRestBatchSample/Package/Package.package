@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="ce090acb-37f3-40e7-b7dd-61ea2f414a83" 
+        solutionId="ce090acb-37f3-40e7-b7dd-61ea2f414a83" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SpRestBatchSampel"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="60e7fc04-24e3-4047-a4fd-b419b5873e61" />
+  </features>
+</package>
