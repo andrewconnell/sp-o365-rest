@@ -1,6 +1,6 @@
 Sample SharePoint Hosted App that demonstrates how to do simple REST operations with the SharePoint 2013 REST API.
 
-This demonstrates how to do simple CRUD operations but also demonstrates how to create batches of individual requests. Once SharePoint 2013 / Office 365 supports the OData `$batch` operator I will update it so it will use this performance improvement for adding, deleting and updating multiple records in one request.
+This demonstrates how to do simple CRUD operations but also demonstrates how to create batches of individual requests. Checking the batch button on the page will force the app to use the OData `$batch` operator when adding, deleting & updating the drivers. This will issue a single HTTP request instead of a series of HTTP requests... a significant performance improvement!
 
 Watch the browser console or use a HTTP debugging proxy like Fiddler to watch the traffic sent across.
 
@@ -8,5 +8,5 @@ Watch the browser console or use a HTTP debugging proxy like Fiddler to watch th
 
 Applies To:
 -----------
-- SharePoint 2013 On-premises (versions: RTM to present)
-- Office 365 SharePont Online (versions: RTM to present)
+- SharePoint 2013 On-premises (versions: *TBD*)
+- Office 365 SharePont Online (versions: *TBD*)

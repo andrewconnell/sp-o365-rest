@@ -343,7 +343,85 @@
      */
     function deleteDriversBatchRequest() {
       console.log('deleteDriversBatchRequest()');
-      alert('$batch not supported yet');
+
+      // generate a batch boundary
+      var batchGuid = generateUUID();
+
+      // creating the body
+      var batchContents = new Array();
+      //var changeSets = Array();
+      var changeSetId = generateUUID();
+
+      // get all the drivers...
+      batchContents.push('--changeset' + changeSetId);
+      for (var driverIndex = 0; driverIndex < self.drivers().length; driverIndex++) {
+
+        var driver = self.drivers()[driverIndex];
+
+        // create the changeset for the heck of it... might want it later
+        //      var changeSet = {
+        //        id: generateUUID(),
+        //        entity: driver
+        //      };
+        //      changeSets.push(changeSet);
+
+        // create the request endpoint
+        var endpoint = _spPageContextInfo.webAbsoluteUrl
+                       + '/_api/web/lists/getbytitle(\'Drivers\')'
+                       + '/items(' + driver.Id + ')';
+
+        // create the changeset
+        //batchContents.push('Content-Type: application/json;odata=verbose');
+        batchContents.push('DELETE ' + endpoint + ' HTTP/1.1');
+        batchContents.push('X-RequestDigest: ' + jQuery("#__REQUESTDIGEST").val());
+        batchContents.push('If-Match: \'*\'');
+
+        if (driverIndex !== self.drivers().length - 1) {
+          batchContents.push('');
+        }
+      }
+      batchContents.push('--changeset_' + changeSetId + '--');
+
+      // generate the body of the batch
+      var batchBody = batchContents.join('\r\n');
+
+      // need to wrap the batch now... 
+      batchContents = new Array();
+      batchContents.push('--batch_' + batchGuid);
+      batchContents.push('Content-Type: multipart/mixed; boundary=changeset_' + changeSetId);
+      batchContents.push('Content-Length: ' + batchBody.length);
+      batchContents.push('');
+      batchContents.push(batchBody);
+      batchContents.push('--batch_' + changeSetId + '--');
+
+      batchBody = batchContents.join('\r\n');
+
+      // create the batch
+      console.debug(batchBody);
+
+      // create the request endpoint 
+      var endpoint = _spPageContextInfo.webAbsoluteUrl
+                     + '/_api/$batch';
+
+      // batches need a specific header
+      var batchRequestHeader = {
+        'X-REQUESTDIGEST': jQuery("#__REQUESTDIGEST").val(),
+        'CONTENT-TYPE': 'multipart/mixed; boundary=batch_' + batchGuid
+      };
+
+      // create request
+      jQuery.ajax({
+        url: endpoint,
+        type: 'POST',
+        headers: batchRequestHeader,
+        data: batchBody,
+        success: function (response) {
+          console.log('.. delete driver PASS ', response);
+        },
+        fail: function (error) {
+          console.log('.. delete driver FAIL ', error);
+        }
+      });
     }
 
     /**
@@ -400,6 +478,23 @@
     }
 
   }
+
+  /*
+   * @name generateUUID
+   * @description
+   * Generates a GUID-like string, used in OData HTTP batches.
+   * 
+   * @returns {string} - A GUID-like string.
+   */
+  function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
+      return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
+    });
+    return uuid;
+  };
 
   /**
    * Attach the view model to the page & enable all buttons.
