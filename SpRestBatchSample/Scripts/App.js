@@ -23,7 +23,7 @@
                     + '/items?$orderby=Title';
 
       var requestHeaders = {
-        'ACCEPT': 'application/json;odata=verbose'
+        'Accept': 'application/json;odata=verbose'
       };
 
       // issue request
@@ -147,7 +147,126 @@
      */
     function addTeamDriversBatchRequest(driversAsJson) {
       console.log('addTeamDriversBatchRequest()', driversAsJson);
-      alert('$batch not supported yet');
+
+
+      // generate a batch boundary
+      var batchGuid = generateUUID();
+
+      // creating the body
+      var batchContents = new Array();
+      var changeSetId = generateUUID();
+
+      // get current host
+      var temp = document.createElement('a');
+      temp.href = _spPageContextInfo.webAbsoluteUrl;
+      var host = temp.hostname;
+
+      // for each driver...
+      for (var driverIndex = 0; driverIndex < driversAsJson.length; driverIndex++) {
+
+        var driver = driversAsJson[driverIndex];
+
+        // create the request endpoint
+        var endpoint = _spPageContextInfo.webAbsoluteUrl
+                       + '/_api/web/lists/getbytitle(\'Drivers\')'
+                       + '/items';
+
+        // create the changeset
+        batchContents.push('--changeset_' + changeSetId);
+        batchContents.push('Content-Type: application/http');
+        batchContents.push('Content-Transfer-Encoding: binary');
+        batchContents.push('');
+        batchContents.push('POST ' + endpoint + ' HTTP/1.1');
+        batchContents.push('Host: ' + host);
+        batchContents.push('Content-Type: application/json;odata=verbose');
+        batchContents.push('X-RequestDigest: ' + jQuery("#__REQUESTDIGEST").val());
+        batchContents.push('');
+        batchContents.push(JSON.stringify(driver));
+        batchContents.push('');
+      }
+      // END changeset to create data
+      batchContents.push('--changeset_' + changeSetId + '--');
+
+
+      // generate the body of the batch
+      var batchBody = batchContents.join('\r\n');
+
+      // start with a clean array
+      batchContents = new Array();
+
+      // create batch for creating items
+      batchContents.push('--batch_' + batchGuid);
+      batchContents.push('Content-Type: multipart/mixed; boundary="changeset_' + changeSetId + '"');
+      batchContents.push('Host: ' + host);
+      batchContents.push('Content-Length: ' + batchBody.length);
+      batchContents.push('Content-Transfer-Encoding: binary');
+      batchContents.push('');
+      batchContents.push(batchBody);
+      batchContents.push('');
+
+      // create request in batch to get all items after all are deleted
+      endpoint = _spPageContextInfo.webAbsoluteUrl
+                    + '/_api/web/lists/getbytitle(\'Drivers\')'
+                    + '/items?$orderby=Title';
+
+
+      batchContents.push('--batch_' + batchGuid);
+      batchContents.push('Content-Type: application/http');
+      batchContents.push('Content-Transfer-Encoding: binary');
+      batchContents.push('');
+      batchContents.push('GET ' + endpoint + ' HTTP/1.1');
+      batchContents.push('Host: ' + host);
+      batchContents.push('Accept: application/json;odata=verbose');
+      batchContents.push('');
+
+      batchContents.push('--batch_' + batchGuid + '--');
+
+      batchBody = batchContents.join('\r\n');
+
+      // create the batch
+      console.debug(batchBody);
+
+      // create the request endpoint 
+      var endpoint = _spPageContextInfo.webAbsoluteUrl
+                     + '/_api/$batch';
+
+      // batches need a specific header
+      var batchRequestHeader = {
+        'X-RequestDigest': jQuery("#__REQUESTDIGEST").val(),
+        'Content-Type': 'multipart/mixed; boundary="batch_' + batchGuid + '"'
+      };
+
+      // create request
+      jQuery.ajax({
+        url: endpoint,
+        type: 'POST',
+        headers: batchRequestHeader,
+        data: batchBody,
+        success: function (response) {
+          console.log('.. create driver PASS ', response);
+
+          var responseInLines = response.split('\n');
+
+          // read each line until you find JSON...
+          for (var currentLine = 0; currentLine < responseInLines.length; currentLine++) {
+            try {
+              // parse the JSON response...
+              var tryParseJson = JSON.parse(responseInLines[currentLine]);
+
+              // clear the view model
+              self.drivers([]);
+              // set response > drivers collection
+              self.drivers(tryParseJson.d.results);
+
+            } catch (e) {
+              // don't do anything... just keep moving
+            }
+          }
+        },
+        fail: function (error) {
+          console.log('.. create driver FAIL ', error);
+        }
+      });
     }
 
     /**
@@ -167,9 +286,9 @@
 
       // build common request headers
       var requestHeaders = {
-        'ACCEPT': 'application/json;odata=verbose',
-        'CONTENT-TYPE': 'application/json;odata=verbose',
-        'X-REQUESTDIGEST': jQuery("#__REQUESTDIGEST").val()
+        'Accept': 'application/json;odata=verbose',
+        'Content-Type': 'application/json;odata=verbose',
+        'X-RequestDigest': jQuery("#__REQUESTDIGEST").val()
       };
 
       // will store requests in promise array
@@ -221,14 +340,14 @@
       var driversToUpdate = [];
 
       // update ferrari
-      driverToUpdate = self.drivers().filter(function(driver) {
+      driverToUpdate = self.drivers().filter(function (driver) {
         return (driver.Title == 'Filipe Massa');
       })[0];
       driverToUpdate.Title = 'Kimi Räikkönen';
       driversToUpdate.push(driverToUpdate);
 
       // update red bull
-      driverToUpdate = self.drivers().filter(function(driver) {
+      driverToUpdate = self.drivers().filter(function (driver) {
         return (driver.Title == 'Mark Webber');
       })[0];
       driverToUpdate.Title = 'Daniel Ricciardo';
@@ -252,7 +371,7 @@
      */
     function updateTeamDriversBatchRequest(driversToUpdate) {
       console.log('updateTeamDriversBatchRequest()' + driversToUpdate);
-      alert('$batch not supported yet');
+      alert('$batch not implemented');
     }
 
     /**
@@ -273,11 +392,11 @@
         var driver = driversToUpdate[driverIndex];
 
         var requestHeaders = {
-          'ACCEPT': 'application/json;odata=verbose',
-          'CONTENT-TYPE': 'application/json;odata=verbose',
-          'X-REQUESTDIGEST': jQuery("#__REQUESTDIGEST").val(),
-          'X-HTTP-METHOD': 'MERGE',
-          'IF-MATCH': driver.__metadata.etag
+          'Accept': 'application/json;odata=verbose',
+          'Content-Type': 'application/json;odata=verbose',
+          'X-RequestDigest': jQuery("#__REQUESTDIGEST").val(),
+          'X-Http-Method': 'MERGE',
+          'If-Match': driver.__metadata.etag
         };
 
         // create the request endpoint
@@ -349,21 +468,17 @@
 
       // creating the body
       var batchContents = new Array();
-      //var changeSets = Array();
       var changeSetId = generateUUID();
 
-      // get all the drivers...
-      batchContents.push('--changeset' + changeSetId);
+      // get current host
+      var temp = document.createElement('a');
+      temp.href = _spPageContextInfo.webAbsoluteUrl;
+      var host = temp.hostname;
+
+      // for each driver...
       for (var driverIndex = 0; driverIndex < self.drivers().length; driverIndex++) {
 
         var driver = self.drivers()[driverIndex];
-
-        // create the changeset for the heck of it... might want it later
-        //      var changeSet = {
-        //        id: generateUUID(),
-        //        entity: driver
-        //      };
-        //      changeSets.push(changeSet);
 
         // create the request endpoint
         var endpoint = _spPageContextInfo.webAbsoluteUrl
@@ -371,28 +486,53 @@
                        + '/items(' + driver.Id + ')';
 
         // create the changeset
-        //batchContents.push('Content-Type: application/json;odata=verbose');
+        batchContents.push('--changeset_' + changeSetId);
+        batchContents.push('Content-Type: application/http');
+        batchContents.push('Content-Transfer-Encoding: binary');
+        batchContents.push('');
         batchContents.push('DELETE ' + endpoint + ' HTTP/1.1');
+        batchContents.push('Host: ' + host);
         batchContents.push('X-RequestDigest: ' + jQuery("#__REQUESTDIGEST").val());
-        batchContents.push('If-Match: \'*\'');
+        batchContents.push('If-Match: *');
 
-        if (driverIndex !== self.drivers().length - 1) {
-          batchContents.push('');
-        }
+        batchContents.push('');
       }
+      // END changeset to delete data
       batchContents.push('--changeset_' + changeSetId + '--');
+
 
       // generate the body of the batch
       var batchBody = batchContents.join('\r\n');
 
-      // need to wrap the batch now... 
+      // start with a clean array
       batchContents = new Array();
+
+      // create batch for deleting items
       batchContents.push('--batch_' + batchGuid);
-      batchContents.push('Content-Type: multipart/mixed; boundary=changeset_' + changeSetId);
+      batchContents.push('Content-Type: multipart/mixed; boundary="changeset_' + changeSetId + '"');
+      batchContents.push('Host: ' + host);
       batchContents.push('Content-Length: ' + batchBody.length);
+      batchContents.push('Content-Transfer-Encoding: binary');
       batchContents.push('');
       batchContents.push(batchBody);
-      batchContents.push('--batch_' + changeSetId + '--');
+      batchContents.push('');
+
+      // create request in batch to get all items after all are deleted
+      endpoint = _spPageContextInfo.webAbsoluteUrl
+                    + '/_api/web/lists/getbytitle(\'Drivers\')'
+                    + '/items?$orderby=Title';
+
+
+      batchContents.push('--batch_' + batchGuid);
+      batchContents.push('Content-Type: application/http');
+      batchContents.push('Content-Transfer-Encoding: binary');
+      batchContents.push('');
+      batchContents.push('GET ' + endpoint + ' HTTP/1.1');
+      batchContents.push('Host: ' + host);
+      batchContents.push('Accept: application/json;odata=verbose');
+      batchContents.push('');
+
+      batchContents.push('--batch_' + batchGuid + '--');
 
       batchBody = batchContents.join('\r\n');
 
@@ -405,8 +545,8 @@
 
       // batches need a specific header
       var batchRequestHeader = {
-        'X-REQUESTDIGEST': jQuery("#__REQUESTDIGEST").val(),
-        'CONTENT-TYPE': 'multipart/mixed; boundary=batch_' + batchGuid
+        'X-RequestDigest': jQuery("#__REQUESTDIGEST").val(),
+        'Content-Type': 'multipart/mixed; boundary="batch_' + batchGuid + '"'
       };
 
       // create request
@@ -417,6 +557,24 @@
         data: batchBody,
         success: function (response) {
           console.log('.. delete driver PASS ', response);
+
+          var responseInLines = response.split('\n');
+
+          // read each line until you find JSON...
+          for (var currentLine = 0; currentLine < responseInLines.length; currentLine++) {
+            try {
+              // parse the JSON response...
+              var tryParseJson = JSON.parse(responseInLines[currentLine]);
+
+              // clear the view model
+              self.drivers([]);
+              // set response > drivers collection
+              self.drivers(tryParseJson.d.results);
+
+            } catch (e) {
+              // don't do anything... just keep moving
+            }
+          }
         },
         fail: function (error) {
           console.log('.. delete driver FAIL ', error);
@@ -436,8 +594,8 @@
       var jobs = [];
 
       var requestHeaders = {
-        'ACCEPT': 'application/json;odata=verbose',
-        'X-REQUESTDIGEST': jQuery("#__REQUESTDIGEST").val(),
+        'Accept': 'application/json;odata=verbose',
+        'X-RequestDigest': jQuery("#__REQUESTDIGEST").val(),
         'If-Match': '*'
       };
 
