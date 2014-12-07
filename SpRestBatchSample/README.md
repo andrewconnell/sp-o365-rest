@@ -17,5 +17,4 @@ Applies To:
 
 Known Issues:
 ----
-- The batch response coming back from SharePoint's REST API is not including changeset references as per the OData [v3.0](http://www.odata.org/documentation/odata-version-3-0/batch-processing/) & [v4.0 spec](http://docs.oasis-open.org/odata/odata/v4.0/errata01/os/complete/part1-protocol/odata-v4.0-errata01-os-part1-protocol-complete.html#_Toc399426860) indicate that it should.
-- Currently I can't get update requests to work.
+- The batch response coming back from SharePoint's REST API is not including changeset references as per the OData [v3.0](http://www.odata.org/documentation/odata-version-3-0/batch-processing/) & [v4.0 spec](http://docs.oasis-open.org/odata/odata/v4.0/errata01/os/complete/part1-protocol/odata-v4.0-errata01-os-part1-protocol-complete.html#_Toc399426860) indicate that it should. However the order of the responses coming back from the batch request match the order of the requests in the initial batch request.
