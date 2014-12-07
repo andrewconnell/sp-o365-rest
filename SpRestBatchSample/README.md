@@ -1,6 +1,10 @@
 Sample SharePoint Hosted App that demonstrates how to do simple REST operations with the SharePoint 2013 REST API.
 
-This demonstrates how to do simple CRUD operations but also demonstrates how to create batches of individual requests. Once SharePoint 2013 / Office 365 supports the OData `$batch` operator I will update it so it will use this performance improvement for adding, deleting and updating multiple records in one request.
+For an explanation on how batching works, see these two blog posts:
+- [Part 1 - SharePoint REST API Batching - Understanding Batching Requests](http://www.andrewconnell.com/blog/part-1-sharepoint-rest-api-batching-understanding-batching-requests)
+- [Part 2 - SharePoint REST API Batching - Exploring Batch Requests, Responses and Changesets](http://www.andrewconnell.com/blog/part-2-sharepoint-rest-api-batching-exploring-batch-requests-responses-and-changesets)
+
+This demonstrates how to do simple CRUD operations but also demonstrates how to create batches of individual requests. Checking the batch button on the page will force the app to use the OData `$batch` operator when adding, deleting & updating the drivers. This will issue a single HTTP request instead of a series of HTTP requests... a significant performance improvement!
 
 Watch the browser console or use a HTTP debugging proxy like Fiddler to watch the traffic sent across.
 
@@ -8,5 +12,10 @@ Watch the browser console or use a HTTP debugging proxy like Fiddler to watch th
 
 Applies To:
 -----------
-- SharePoint 2013 On-premises (versions: RTM to present)
-- Office 365 SharePont Online (versions: RTM to present)
+- SharePoint 2013 On-premises (versions: *TBD*)
+- Office 365 SharePont Online (versions: *TBD*)
+
+Known Issues:
+----
+- The batch response coming back from SharePoint's REST API is not including changeset references as per the OData [v3.0](http://www.odata.org/documentation/odata-version-3-0/batch-processing/) & [v4.0 spec](http://docs.oasis-open.org/odata/odata/v4.0/errata01/os/complete/part1-protocol/odata-v4.0-errata01-os-part1-protocol-complete.html#_Toc399426860) indicate that it should.
+- Currently I can't get update requests to work.
