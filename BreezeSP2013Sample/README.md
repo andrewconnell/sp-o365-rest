@@ -8,3 +8,5 @@ Applies To:
 -----------
 - SharePoint 2013 On-premises (versions: RTM to present)
 - Office 365 SharePont Online (versions: RTM to present)
+
+[![Analytics](https://ga-beacon.appspot.com/UA-59891462-1/sp-0365-rest/BreezeSP2013Sample)](https://github.com/igrigorik/ga-beacon)

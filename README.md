@@ -38,3 +38,5 @@ Training / Classes
 - :moneybag: Howard Dierking's Pluralsight Course [REST Fundamentals](http://www.pluralsight.com/courses/rest-fundamentals)
 - :moneybag: Rob Windsor's Pluralsight Course [SharePoint 2013 Development: Client Object Model and REST API](http://www.andrewconnell.com/blog/sharepoint-2013-csom-vs.-rest-...-my-preference-and-why)
 - :moneybag: Sahil Malik's Pluralsight Course [Understanding SharePoint 2013: Part 5 - REST and CSOM](http://www.pluralsight.com/courses/understanding-sharepoint2013-rest-client-side-object-model)
+
+[![Analytics](https://ga-beacon.appspot.com/UA-59891462-1/sp-0365-rest/readme)](https://github.com/igrigorik/ga-beacon)
