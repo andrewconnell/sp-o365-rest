@@ -7,7 +7,7 @@ Samples in this Repo
 Look at the readme files in each sample for more information on each of them.
 
 - **[BreezeSP2013Sample](BreezeSP2013Sample)**: Demonstrates how to use the [BreezeJS](http://www.breezejs.com) library to simplify client-side interactions with the SharePoint REST API.
-
+- **[SpRestBatchSample](SpRestBatchSample)**: Demonstrates how to create and consume OData batch requests using the SharePoint Online RETS API in Office 365.
 
 
 Official Documentation References
@@ -28,6 +28,8 @@ Links
   - [SharePoint 2013: CSOM vs. REST ... My Preference and Why](http://www.andrewconnell.com/blog/sharepoint-2013-csom-vs.-rest-...-my-preference-and-why)
   - [Simplifying SharePoint 2013 REST API](http://www.andrewconnell.com/blog/simplifying-sharepoint-2013-rest-api)
   - [Applying Filters to Lookup Fields with the SharePoint 2013 REST API](http://www.andrewconnell.com/blog/Applying-Filters-to-Lookup-Fields-with-the-SP2013-REST-API)
+  - [Part 1 - SharePoint REST API Batching - Understanding Batching Requests](http://www.andrewconnell.com/blog/part-1-sharepoint-rest-api-batching-understanding-batching-requests)
+  - [Part 2 - SharePoint REST API Batching - Exploring Batch Requests, Responses and Changesets](http://www.andrewconnell.com/blog/part-2-sharepoint-rest-api-batching-exploring-batch-requests-responses-and-changesets)
 - SharePoint 2013 / Office 365
   - [BreezeJS Makes Client-Side SharePoint 2013 REST Development a... BREEZE!](http://www.andrewconnell.com/blog/breezejs-makes-client-side-sharepoint-2013-rest-development-a-breeze)
 
