@@ -1,0 +1,10 @@
+<div>
+  <h2>SharePoint Lists in Site:</h2>
+  <a href="{{::vm.sharePointSiteUrl}}">{{::vm.sharePointSiteUrl}}</a>
+
+  <ul>
+    <li data-ng-repeat="list in vm.lists">
+      <a href="{{::vm.sharePointSiteUrl}}{{::list.DefaultView.ServerRelativeUrl}}">{{::list.Title}}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,36 @@
+{
+  "name": "adal-cors-client",
+  "version": "0.1.0",
+  "description": "demonstrates a fully client-side solution that talks to Office 365 REST APIs using ADAL JS",
+  "main": "index.js",
+  "scripts": {
+    "init": "npm install",
+    "install": "bower install"
+  },
+  "author": {
+    "name": "Andrew Connell",
+    "email": "me@andrewconnell.com",
+    "url": "http://www.andrewconnell.com"
+  },
+  "keywords": [
+    "adal js",
+    "adal",
+    "office 365",
+    "office",
+    "sharepoint"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "superstatic": "^2.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-debug": "^2.0.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-inject": "^1.1.1",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-tslint": "^1.4.3",
+    "gulp-typescript": "^2.4.2",
+    "merge2": "^0.3.1"
+  }
+}

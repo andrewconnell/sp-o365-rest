@@ -1,0 +1,7 @@
+<div data-ng-controller="adalO365CorsClient.navController as vm">
+  <ul>
+    <li data-ng-repeat="route in vm.routes">
+      <a href="#{{::route.originalPath}}">{{::route.title}}</a>
+    </li>
+  </ul>
+</div>

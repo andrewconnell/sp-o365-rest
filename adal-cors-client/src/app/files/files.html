@@ -1,0 +1,10 @@
+<div>
+  <h2>User's OneDrive Files:</h2>
+  <a href="{{::vm.oneDriveUrl}}">{{::vm.oneDriveUrl}}</a>
+
+  <ul>
+    <li data-ng-repeat="file in vm.files">
+      <a href="{{::file.webUrl}}">{{::file.name}}</a>
+    </li>
+  </ul>
+</div>
