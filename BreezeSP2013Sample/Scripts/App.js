@@ -50,7 +50,7 @@ function createMetadata() {
 
   // create entity for contacts
   addType({
-    name: 'Contact',
+    name: 'Contacts',
     defaultResourceName: 'getbytitle(\'Contacts\')/items',
     dataProperties: {
       Id: { type: breeze.DataType.Int32 },
@@ -87,7 +87,7 @@ function createMetadata() {
 // init breeze for queries
 function initBreeze() {
   // get reference to contact entity type
-  contactType = metadataStore.getEntityType('Contact');
+  contactType = metadataStore.getEntityType('Contacts');
 
   // create the data service
   var dataService = new breeze.DataService({
@@ -130,7 +130,7 @@ function getAllItems() {
 // get a single item
 function getOneItem() {
   // try to get a single item from the cache, then revert to server
-  entityManager.fetchEntityByKey('Contact', 1, true)
+  entityManager.fetchEntityByKey('Contacts', 1, true)
   .then(function (data) {
     var message = data.entity.FirstName + ' ' + data.entity.Title + ' (' + data.entity.Email + ')<br/>';
     message += 'pulled from: ' + (data.fromCache ? 'cache' : 'server');
@@ -141,7 +141,7 @@ function getOneItem() {
 // update an item
 function updateFirstItem() {
   // get the first item
-  var promise = entityManager.fetchEntityByKey('Contact', 1, true)
+  var promise = entityManager.fetchEntityByKey('Contacts', 1, true)
                   .then(function (data) {
                     return data.entity;
                   });
