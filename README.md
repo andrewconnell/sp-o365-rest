@@ -6,9 +6,9 @@ Samples in this Repo
 --------------------
 Look at the readme files in each sample for more information on each of them.
 
+- **[adal-cors-client](adal-cors-client)**: Demonstrates how to use the ADAL JS & support for OAuth2 Implicit Flow to create a 100% client-side secure solution with Azure AD, Angular & Office 365's SharePoint & Files REST APIs.
 - **[BreezeSP2013Sample](BreezeSP2013Sample)**: Demonstrates how to use the [BreezeJS](http://www.breezejs.com) library to simplify client-side interactions with the SharePoint REST API.
 - **[SpRestBatchSample](SpRestBatchSample)**: Demonstrates how to create and consume OData batch requests using the SharePoint Online RETS API in Office 365.
-
 
 Official Documentation References
 ---------------------------------
