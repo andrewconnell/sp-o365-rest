@@ -1,7 +1,7 @@
-SharePoint 2013 BreezeJS Reference Implementation
+SharePoint 2010 BreezeJS Reference Implementation
 =================================================
 
-Sample SharePoint Hosted App that demonstrates using the BreezeJS library with SharePoint 2013's REST API.
+Sample SharePoint Hosted App that demonstrates using the BreezeJS library with SharePoint 2010's REST API.
 
 This is based off the work I did with [Ward Bell](http://www.twitter.com/wardbell) to get BreezeJS to work with SharePoint. Which you can read more about on my blog: [BreezeJS Makes Client-Side SharePoint 2013 REST Development a... BREEZE!](http://www.andrewconnell.com/blog/breezejs-makes-client-side-sharepoint-2013-rest-development-a-breeze) 
 
@@ -9,7 +9,6 @@ Work & improvements continue on the SharePoint data service adapter... check out
 
 Applies To:
 -----------
-- SharePoint 2013 On-premises (versions: RTM to present)
-- Office 365 SharePont Online (versions: RTM to present)
+- SharePoint 2010 On-premises (versions: RTM to present)
 
-[![Analytics](https://ga-beacon.appspot.com/UA-59891462-1/sp-0365-rest/BreezeSP2013Sample)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-59891462-1/sp-0365-rest/BreezeSP2010Sample)](https://github.com/igrigorik/ga-beacon)

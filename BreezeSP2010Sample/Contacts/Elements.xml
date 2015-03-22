@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Contacts"
+                OnQuickLaunch="TRUE"
+                TemplateType="105"
+                FeatureId="00bfea71-7e6d-4186-9ba8-c047ac750105"
+                Url="Lists/Contacts"
+                Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="FirstName">Daniil</Field>
+          <Field Name="Title">Kvyat</Field>
+          <Field Name="Email">daniil.kvyat@redbull.com</Field>
+        </Row>
+        <Row>
+          <Field Name="FirstName">Kimi</Field>
+          <Field Name="Title">Raikkonen</Field>
+          <Field Name="Email">kimi.Raikkonen@ferrari.it</Field>
+        </Row>
+        <Row>
+          <Field Name="FirstName">Sebastian</Field>
+          <Field Name="Title">Vettel</Field>
+          <Field Name="Email">Sebastian.vettel@ferrari.it</Field>
+        </Row>
+        <Row>
+          <Field Name="FirstName">Daniel</Field>
+          <Field Name="Title">Ricciardo</Field>
+          <Field Name="Email">daniel.ricciardo@redbull.com</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

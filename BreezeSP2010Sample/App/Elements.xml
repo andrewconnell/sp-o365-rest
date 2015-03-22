@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="App">
+    <File Path="App\Default.aspx" Url="App/Default.aspx" />
+    <File Path="App\App.js" Url="App/App.js" />
+  </Module>
+</Elements>

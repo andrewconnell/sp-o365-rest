@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f44222cc-b041-49ee-9e55-a8cb9dc45a3d" solutionId="f44222cc-b041-49ee-9e55-a8cb9dc45a3d" resetWebServer="false" name="BreezeSP2010Sample" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="4f37fac1-679c-43ad-b722-009ddcbaaae4" />
+  </features>
+</package>
