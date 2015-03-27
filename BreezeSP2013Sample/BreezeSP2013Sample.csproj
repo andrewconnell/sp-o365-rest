@@ -53,28 +53,11 @@
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.9.1.min.map">
-      <DependentUpon>jquery-1.9.1.js</DependentUpon>
-    </None>
     <None Include="Scripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0a367f9a-235c-4d0e-aef3-aa3f664eef31}</SharePointProjectItemId>
     </None>
-    <Content Include="Scripts\breeze.debug.js" />
-    <Content Include="Scripts\breeze.labs.dataservice.abstractrest.js" />
-    <Content Include="Scripts\breeze.labs.dataservice.sharepoint.js" />
-    <Content Include="Scripts\breeze.metadata-helper.js" />
-    <Content Include="Scripts\breeze.min.js" />
     <Content Include="Scripts\Elements.xml" />
     <Content Include="Scripts\App.js" />
-    <Content Include="Scripts\jquery-1.9.1.intellisense.js">
-      <DependentUpon>jquery-1.9.1.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js">
-      <DependentUpon>jquery-1.9.1.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\q.js" />
-    <Content Include="Scripts\q.min.js" />
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>

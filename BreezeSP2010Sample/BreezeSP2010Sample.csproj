@@ -73,7 +73,6 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="Scripts\jquery-2.1.3.min.map" />
     <None Include="Scripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{ee1051d1-937c-461c-af00-652aa504a351}</SharePointProjectItemId>
     </None>
@@ -87,17 +86,6 @@
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
-    <Content Include="Scripts\breeze.debug.js" />
-    <Content Include="Scripts\breeze.intellisense.js" />
-    <Content Include="Scripts\breeze.labs.dataservice.abstractrest.js" />
-    <Content Include="Scripts\breeze.labs.dataservice.sharepoint.js" />
-    <Content Include="Scripts\breeze.metadata-helper.js" />
-    <Content Include="Scripts\breeze.min.js" />
-    <Content Include="Scripts\jquery-2.1.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.3.js" />
-    <Content Include="Scripts\jquery-2.1.3.min.js" />
-    <Content Include="Scripts\q.js" />
-    <Content Include="Scripts\q.min.js" />
     <Content Include="Scripts\Elements.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
