@@ -23,7 +23,7 @@ module adalO365CorsClient {
     public getUserFiles():ng.IPromise<adalO365CorsClient.shared.IFile[]> {
       var deferred = this.$q.defer();
 
-      var endpoint = this.appSettings.baseOneDriveUrl + 'files/getbypath(\'receipts\')/children?'
+      var endpoint = this.appSettings.baseOneDriveUrl + 'files/root/children?'
         + '$select=name,webUrl'
         + '&$orderby=name';
 
